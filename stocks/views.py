@@ -1,24 +1,31 @@
 from django.shortcuts import render
 import requests
 import os
+import pandas as pd
 
-
-# Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 
 
+# 東証から銘柄一覧を取得して、dataフォルダに格納する一連の関数
 def save_file(path, filename, data, mode):
     # ファイルを保存するためのディレクトリを作成
     os.makedirs(path, exist_ok=True)
 
     # ファイルパスを生成
-    file_paht = os.path.join(path, filename)
+    file_path = os.path.join(path, filename)
 
     # 指定したフォルダに保存
-    with open(file_paht, mode) as f:
+    with open(file_path, mode) as f:
         f.write(data.content)
+
+
+def brand_xls2csv():
+    read_file = pd.read_excel("/Users/yoshikazukakehashi/PycharmProjects/kabu_django2/data/data_all_brand.xls")
+    read_file.to_csv("/Users/yoshikazukakehashi/PycharmProjects/kabu_django2/data/data_all_brand.csv", index=True,
+                     header=True)
+
 
 def get_all_brand():
     req = requests.get("https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls")
@@ -31,3 +38,5 @@ def get_all_brand():
 
     # ファイルを保存する
     save_file(new_dir, fname, req, "wb")
+
+    brand_xls2csv()

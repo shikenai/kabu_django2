@@ -1,0 +1,104 @@
+body {
+    min-height: 800px;
+    display: grid;
+    grid-template:
+        "header  header header" 80px
+        "main    main   main  " 1fr
+        /150px   1fr;
+    gap: 5px;
+}
+
+header {
+    grid-area: header;
+    border: 1px solid black;
+    padding-left: 20px;
+}
+
+#root {
+    display: grid;
+    grid-template:
+        "sidebar main   main  " 1fr
+        /150px   1fr;
+    grid-area: main;
+    gap: 5px;
+}
+
+sidebar {
+    grid-area: sidebar;
+    border: 1px solid black;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    border: 1px solid black;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 20%; /* 角丸       */
+    font-size: 18pt; /* 文字サイズ */
+    text-align: center; /* 文字位置   */
+    cursor: pointer; /* カーソル   */
+    padding: 5px 5px; /* 余白       */
+    margin: 5px;
+    background: #00007f; /* 背景色     */
+    color: #ffffff; /* 文字色     */
+    line-height: 50px; /* 1行の高さ  */
+    transition: .3s; /* なめらか変化 */
+    box-shadow: 2px 2px 6px #666666; /* 影の設定 */
+    border: 2px solid #00007f; /* 枠の指定 */
+    text-decoration: none;
+}
+
+.button:hover {
+    box-shadow: none; /* カーソル時の影消去 */
+    color: #00007f; /* 背景色     */
+    background: #ffffff; /* 文字色     */
+}
+
+.button-hhe {
+    display: inline-block;
+    border-radius: 20%; /* 角丸       */
+    font-size: 12pt; /* 文字サイズ */
+    text-align: center; /* 文字位置   */
+    cursor: pointer; /* カーソル   */
+    padding: 3px 3px; /* 余白       */
+    margin: 3px;
+    background: #935; /* 背景色     */
+    color: #fff; /* 文字色     */
+    line-height: 40px; /* 1行の高さ  */
+    transition: .3s; /* なめらか変化 */
+    box-shadow: 1px 1px 3px #666666; /* 影の設定 */
+    border: 2px solid #00007f; /* 枠の指定 */
+    text-decoration: none;
+}
+
+.button-hhe:hover {
+    box-shadow: none; /* カーソル時の影消去 */
+    color: #935; /* 背景色     */
+    background: #fff; /* 文字色     */
+}
+
+table {
+    border: solid black 1px;
+}
+
+th, td {
+    padding: 6px;
+    border: solid black 1px;
+}
+
+th {
+    background-color: #666;
+    color: white;
+}
+
+input[type=checkbox]{
+    transform: scale(1.5);
+}
+
+.list_command {
+    background-color: fuchsia;
+    min-height: 30px;
+}
